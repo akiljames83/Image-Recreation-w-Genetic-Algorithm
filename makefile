@@ -4,7 +4,7 @@ LDFLAGS= -pg
 CC= gcc
 VOPS = --leak-check=full #--show-leak-kinds=all -v
 run: 
-	$(CC) $(CFLAGS) $(files) -lm -pg
+	$(CC) $(CFLAGS) $(files) -lm
 val:
 	valgrind  $(VOPS) ./a.out 
 time:

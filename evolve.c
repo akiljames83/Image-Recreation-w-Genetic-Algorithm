@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <string.h>
 
 void free_population(Individual * p, int population_size);
 void updateChannels(PPM_IMAGE *img, Individual * p);

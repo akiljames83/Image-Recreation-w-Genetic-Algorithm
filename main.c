@@ -4,16 +4,16 @@
 
 // int main(void) {
 //   PPM_IMAGE *img = read_ppm("mcmaster.ppm");
-//   //PPM_IMAGE *img2 = read_ppm("mcmaster.ppm");
-//   //double distance = comp_distance(img->data, img2->data, img->width * img->height);
-//   //int population_size = 50;
+//   PPM_IMAGE *img2 = read_ppm("mcmaster.ppm");
+//   double distance = comp_distance(img->data, img2->data, img->width * img->height);
+//   int population_size = 50;
 //   //Individual* pop = generate_population(population_size, 100, 100, 255);
-//   //Individual* pop = generate_population(population_size, img->width, img->height, img->max_color);
-//   //printf("The distance between the 2 images are: %.3f.\n", distance);
+//   Individual* pop = generate_population(population_size, img->width, img->height, img->max_color);
+//   printf("The distance between the 2 images are: %.3f.\n", distance);
 //   write_ppm("out.ppm",img);
 //   free_image(img);
-//   //free_image(img2);
-//   //free_population(pop, population_size);
+//   free_image(img2);
+//   free_population(pop, population_size);
 //   exit(EXIT_SUCCESS);
 // }
 int main(void) {

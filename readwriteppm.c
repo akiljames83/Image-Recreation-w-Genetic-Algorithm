@@ -88,8 +88,6 @@ void write_ppm ( const char * file_name , const PPM_IMAGE * image ) {
       fprintf(fp, "%d %d %d ", image->data[i * image->width + j].r,
               image->data[i * image->width + j].g,
               image->data[i * image->width + j].b);
-      // if (j + 1 != image->width)
-      //   fprintf(fp, " ");
     }
     if (i + 1 != image->height)
       fprintf(fp, "\n");
