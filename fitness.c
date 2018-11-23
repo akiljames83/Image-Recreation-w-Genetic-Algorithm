@@ -8,9 +8,12 @@ double comp_distance ( const PIXEL *A, const PIXEL *B, int image_size ) {
 	double d = 0;
 	// do unrolling by 4 to optomize computation time !!!
 	for (int i = 0; i < image_size; i++) {
-		d += pow(((int) A[i].r - (int) B[i].r),2);
-		d += pow(((int) A[i].b - (int) B[i].b),2);
-		d += pow(((int) A[i].g - (int) B[i].g),2);
+		// d += (((int) A[i].r - (int) B[i].r)*((int) A[i].r - (int) B[i].r));
+		// d += (((int) A[i].b - (int) B[i].b)*((int) A[i].b - (int) B[i].b));
+		// d += (((int) A[i].g - (int) B[i].g)*((int) A[i].g - (int) B[i].g));
+		d += pow(((int) ((*(A + i)).r) - (int) ((*(B + i)).r)),2);
+		d += pow(((int) ((*(A + i)).b) - (int) ((*(B + i)).b)),2); //A[i].b 
+		d += pow(((int) ((*(A + i)).g) - (int) ((*(B + i)).g)),2);
 	}
 	d = pow(d, 0.5);
 	return d;

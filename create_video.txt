@@ -6,3 +6,6 @@ ffmpeg -framerate 10 -pattern_type glob -i '*.png' \
 rm *.ppm *.png
 
 // netpbm
+
+cd vids/ ;for f in *ppm ; do convert -quality 100 $f `basename $f ppm`png; done ; ffmpeg -framerate 10 -pattern_type glob -i '*.png' \
+  -c:v libx264 -r 30 -pix_fmt yuv420p out.mp4; rm *.ppm *.png;  mv out.mp4 ../final.mp4;
