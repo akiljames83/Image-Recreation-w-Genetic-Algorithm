@@ -19,7 +19,7 @@
 int main(void) {
   PPM_IMAGE *image = read_ppm("me.ppm");
   int population_size = 24; // greater than 10 is seg fault ??
-  int num_generations = 50000;//minute*60; // 4000 iterations per minute
+  int num_generations = 100000;//minute*60; // 4000 iterations per minute
   double rate = 3e-2;
   printf("\nFile new_out.ppm:\nSize: %dx%d, max color %d, pixels to mutate %d\n",
    image->width, image->height, image->max_color, (int)(rate/100*image->width*image->height));

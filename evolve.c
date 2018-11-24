@@ -21,7 +21,7 @@ PPM_IMAGE * evolve_image ( const PPM_IMAGE *image , int num_generations ,int pop
 	double original = first, temp;
 	int img_dim = image->width * image->height;
 
-	FILE *data=fopen("data-alr-99992-wmin.txt", "a");
+	//FILE *data=fopen("data-alr-99992-wmin.txt", "a");
 	int count = 1;
     char num[10], file[50];
     double adaptivelr = rate; // * here
@@ -34,25 +34,21 @@ PPM_IMAGE * evolve_image ( const PPM_IMAGE *image , int num_generations ,int pop
 		temp = population[0].fitness;
 		if ((i + 1)% 100 == 0) {
 			printf("Iteration: %d - P.Change (last): %.2e%%; P.Change (first): %.3f%%; Fitness: %.5e; Num Pixels: %d\n", i+1, (temp-first)/first*100,100. + (temp-original)/original*100, temp, (int) ((adaptivelr/100)*55224));
-			fprintf(data, "%.3f ", 100. + (temp-original)/original*100);
-			adaptivelr = pow(0.99992,(int) (i+1/100))*rate; // *here 
+			//fprintf(data, "%.3f ", 100. + (temp-original)/original*100);
+			adaptivelr = pow(0.99993,(int) (i+1/100))*rate; // *here 
 			if (((int)((adaptivelr/100)*img_dim)) == 0) adaptivelr = const_rate;
-			// implement early stop or add if statement so that it drops to 2 or 1 maybe
-			// @ 0.9999 hit goal in 25600 itr -> 28100(max): 76.171%
-			// @ 0.99992 hit goal in 24180 itr -> 34700(max): 73.830%
-			// @ 0.99993 hit goal in 23900 itr -> 40400(max): 71.824%
 		}
 		first = population[0].fitness;
-		// if ((i + 1) % 50 == 0) {
-  //   		strcpy(file, "vids/img");
-  //   		sprintf(num, "%04d", count++);
-		// 	strcat(file, num);
-		// 	strcat(file,".ppm");
-		// 	write_ppm(file,&(population[0].image));
-		// }
+		if ((i + 1) % 50 == 0) {
+    		strcpy(file, "vids/img");
+    		sprintf(num, "%04d", count++);
+			strcat(file, num);
+			strcat(file,".ppm");
+			write_ppm(file,&(population[0].image));
+		}
 
 	}
-	fclose(data);
+	//fclose(data);
 	PPM_IMAGE * final = (PPM_IMAGE *)malloc(sizeof(PPM_IMAGE));
 	final->width = population[0].image.width;
 	final->height = population[0].image.height;
