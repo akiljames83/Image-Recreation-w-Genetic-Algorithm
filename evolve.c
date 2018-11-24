@@ -17,6 +17,7 @@ PPM_IMAGE * evolve_image ( const PPM_IMAGE *image , int num_generations ,int pop
 	comp_fitness_population ( image->data , population , population_size );
 	qsort (population, population_size, sizeof(Individual), compare);
 	double first = population[0].fitness;
+	double original = first, temp;
 	// ///////
 	// // for (int i = 0; i < population_size; i++){
 	// // 	printf("Fitness %d: %.3f\n", i+1, population[i].fitness);
@@ -28,7 +29,8 @@ PPM_IMAGE * evolve_image ( const PPM_IMAGE *image , int num_generations ,int pop
 		mutate_population ( population , population_size , rate );
 		comp_fitness_population ( image->data , population , population_size );
 		qsort (population, population_size, sizeof(Individual), compare);
-		if ((i + 1)% 100 == 0) printf("Iteration %d - Percent change: %.2e%%; Fitness: %.15e\n", i+1, (population[0].fitness-first)/first*100, population[0].fitness);
+		temp = population[0].fitness;
+		if ((i + 1)% 100 == 0) printf("Iteration: %d - P.Change (last): %.2e%%; P.Change (first): %.3f%%; Fitness: %.5e\n", i+1, (temp-first)/first*100,100. + (temp-original)/original*100, temp);
 		first = population[0].fitness;
 		if ((i + 1) % 50 == 0) {
     		strcpy(file, "vids/img");
