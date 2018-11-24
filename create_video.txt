@@ -1,3 +1,6 @@
+Run:
+make clean; make; time make test;
+
 for f in *ppm ; do convert -quality 100 $f `basename $f ppm`png; done 
 
 ffmpeg -framerate 10 -pattern_type glob -i '*.png' \
