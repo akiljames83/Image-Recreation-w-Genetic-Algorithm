@@ -20,7 +20,7 @@ cd vids/ ;for f in *ppm ; do convert -quality 100 $f `basename $f ppm`png; done 
   -c:v libx264 -r 30 -pix_fmt yuv420p out.mp4;  mv out.mp4 ../final.mp4; cd ..;
 
 30 Frames per second:
-cd vids/ ;for f in *ppm ; do convert -quality 100 $f `basename $f ppm`png; done ; ffmpeg -framerate 60 -pattern_type glob -i '*.png' \
+cd vids/ ;for f in *ppm ; do convert -quality 100 $f `basename $f ppm`png; done ; ffmpeg -framerate 30 -pattern_type glob -i '*.png' \
   -c:v libx264 -r 30 -pix_fmt yuv420p out.mp4;  mv out.mp4 ../final.mp4; cd ..;
 
 Clean up:
