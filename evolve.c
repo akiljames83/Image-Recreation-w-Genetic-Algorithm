@@ -13,7 +13,7 @@ int compare(const void *a, const void *b) {
 }
 PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations,
                         int population_size, double rate) {
-  // srand(time(NULL));
+  srand(time(NULL));
   Individual *population = generate_population(population_size, image->width,
                                                image->height, image->max_color);
   comp_fitness_population(image->data, population, population_size);
@@ -48,25 +48,20 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations,
       if (((int)((adaptivelr / 100) * img_dim)) == 0){
       	adaptivelr = const_rate;
       } 
-      // if (i + 1  == 100000) {
-      // 	const_rate *= 0.65;
-      // }
-      // if (i + 1 == 175000) {
-      // 	const_rate *= 0.7;
-      // }
-      // if (i + 1 == 250000) {
-      // 	const_rate *= 0.7;
-      // }
     }
-
     first = population[0].fitness;
-    if ((i + 1) % 100 == 0) {
-      strcpy(file, "vids/img");
-      sprintf(num, "%04d", count++);
-      strcat(file, num);
-      strcat(file, ".ppm");
-      write_ppm(file, &(population[0].image));
-    }
+
+    /////////////////////////////////////
+    /////// Section to Create Video /////
+    /////////////////////////////////////
+    
+    // if ((i + 1) % 100 == 0) {
+    //   strcpy(file, "vids/img");
+    //   sprintf(num, "%04d", count++);
+    //   strcat(file, num);
+    //   strcat(file, ".ppm");
+    //   write_ppm(file, &(population[0].image));
+    // }
   }
   // fclose(data);
   PPM_IMAGE * final = (PPM_IMAGE *)malloc(sizeof(PPM_IMAGE));

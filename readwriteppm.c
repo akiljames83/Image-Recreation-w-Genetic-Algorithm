@@ -57,8 +57,8 @@ PPM_IMAGE *read_ppm(const char *file_name) {
       else
         index++;
       if (index == 0)
-        i++; // printf("%d ", n);
-    }        // printf("\n");
+        i++; 
+    }
   }
   free(line);
   fclose(fp);
