@@ -25,9 +25,6 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations,
   // FILE *data=fopen("data-alr-99992-wmin.txt", "a");
   int count = 1;
 
-  //int now_const = 0;
-  //double const_dec = 0.999;
-
   char num[10], file[50];
   double adaptivelr = rate; // * here
   double const_rate = rate * (0.2);
@@ -62,23 +59,6 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations,
       // 	const_rate *= 0.7;
       // }
     }
-
-    ////////////////////////////////////////////////////////
-    // extra stuff for fine tuning
-    // if ( i > 50000){
-    // 	if ((i + 1) % 500 == 0 && now_const) {
-	   //  	//printf("Const_Dec activated\n");
-	   //  	const_dec *= const_dec;
-	   //  	adaptivelr *= const_dec;
-	    	
-	   //  }
-	   //  adaptivelr *= const_dec;
-	   //  if (((int)((adaptivelr / 100) * img_dim)) == 0) {
-	   //      adaptivelr = const_rate*0.4;
-	   //  }
-    // }
-    
-    ///////////////////////////////////////////////////////
 
     first = population[0].fitness;
     if ((i + 1) % 100 == 0) {
