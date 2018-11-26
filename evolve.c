@@ -52,15 +52,15 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations,
       	adaptivelr = const_rate;
     	//now_const = 1;
       } 
-      if (i + 1  == 100000) {
-      	const_rate *= 0.65;
-      }
-      if (i + 1 == 175000) {
-      	const_rate *= 0.7;
-      }
-      if (i + 1 == 250000) {
-      	const_rate *= 0.7;
-      }
+      // if (i + 1  == 100000) {
+      // 	const_rate *= 0.65;
+      // }
+      // if (i + 1 == 175000) {
+      // 	const_rate *= 0.7;
+      // }
+      // if (i + 1 == 250000) {
+      // 	const_rate *= 0.7;
+      // }
     }
 
     ////////////////////////////////////////////////////////
