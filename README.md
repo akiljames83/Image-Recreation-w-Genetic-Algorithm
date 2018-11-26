@@ -14,3 +14,4 @@ Here is a video depicting the recreation of the Famous Painting "Mona Lisa".
 
 ## Application of Adaptive Learning Rate on Training Accuracy
 Graph depicting the efficacy of various adaptive learning rates on a given input image.
+![Graphed Results](graphing_data/Escher-EDA-Progress-Plots.png)
