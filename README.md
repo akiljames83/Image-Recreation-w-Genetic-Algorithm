@@ -7,7 +7,7 @@ To further improve the efficacy of this algorithm, we applied an Exponentially D
 Here is a video depicting the recreation of the Famous Painting "Mona Lisa".
 
 ### Original & Final Image
-![Original](results/mona_lisa.png)
+![Original](results/mona_lisa.jpg)
 
 ### Video of Image Recreation
 ![Demo Doccou alpha](https://j.gifs.com/oQDJnY.gif)
