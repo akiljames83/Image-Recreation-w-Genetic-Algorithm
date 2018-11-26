@@ -35,6 +35,7 @@ PPM_IMAGE *read_ppm(const char *file_name) {
     if (counter == 0) {
       if (line[0] != 'P' || line[1] != '3') {
         printf("Invalid file type.\n");
+        //counter;
         exit(1);
       }
     } else if (counter == 1) {

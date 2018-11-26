@@ -24,11 +24,15 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations,
 
   // FILE *data=fopen("data-alr-99992-wmin.txt", "a");
   int count = 1;
+
+  //int now_const = 0;
+  //double const_dec = 0.999;
+
   char num[10], file[50];
   double adaptivelr = rate; // * here
   double const_rate = rate * (0.2);
   for (int i = 0; i < num_generations; i++) {
-    crossover(population, population_size);
+    crossover(population, population_size); // sub 1 and youre bless
     mutate_population(population, population_size, adaptivelr); // * here
     comp_fitness_population(image->data, population, population_size);
     qsort(population, population_size, sizeof(Individual), compare);
@@ -40,15 +44,44 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations,
              (temp - first) / first * 100,
              100. + (temp - original) / original * 100, 
              temp,
-             (int)((adaptivelr / 100) * 55224));
+             (int)((adaptivelr / 100) * img_dim));
 
       // fprintf(data, "%.3f ", 100. + (temp-original)/original*100);
       adaptivelr = pow(0.99993, (int)(i + 1 / 100)) * rate; // *here
-      if (((int)((adaptivelr / 100) * img_dim)) == 0)
-        adaptivelr = const_rate;
+      if (((int)((adaptivelr / 100) * img_dim)) == 0){
+      	adaptivelr = const_rate;
+    	//now_const = 1;
+      } 
+      if (i + 1  == 100000) {
+      	const_rate *= 0.65;
+      }
+      if (i + 1 == 175000) {
+      	const_rate *= 0.7;
+      }
+      if (i + 1 == 250000) {
+      	const_rate *= 0.7;
+      }
     }
+
+    ////////////////////////////////////////////////////////
+    // extra stuff for fine tuning
+    // if ( i > 50000){
+    // 	if ((i + 1) % 500 == 0 && now_const) {
+	   //  	//printf("Const_Dec activated\n");
+	   //  	const_dec *= const_dec;
+	   //  	adaptivelr *= const_dec;
+	    	
+	   //  }
+	   //  adaptivelr *= const_dec;
+	   //  if (((int)((adaptivelr / 100) * img_dim)) == 0) {
+	   //      adaptivelr = const_rate*0.4;
+	   //  }
+    // }
+    
+    ///////////////////////////////////////////////////////
+
     first = population[0].fitness;
-    if ((i + 1) % 50 == 0) {
+    if ((i + 1) % 100 == 0) {
       strcpy(file, "vids/img");
       sprintf(num, "%04d", count++);
       strcat(file, num);
