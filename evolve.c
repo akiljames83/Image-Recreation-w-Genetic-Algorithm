@@ -47,7 +47,6 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations,
       adaptivelr = pow(0.99993, (int)(i + 1 / 100)) * rate; // *here
       if (((int)((adaptivelr / 100) * img_dim)) == 0){
       	adaptivelr = const_rate;
-    	//now_const = 1;
       } 
       // if (i + 1  == 100000) {
       // 	const_rate *= 0.65;
