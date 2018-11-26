@@ -10,7 +10,7 @@ Here is a video depicting the recreation of the Famous Painting "Mona Lisa".
 ### Original & Recreated Image
 ![Original](results/mona_lisa.jpg)
 ![Recreated](results/mona_lisa_200k.png)
-### Video of Image Recreation
+### Gif of Image Recreation
 ![Demo Doccou alpha](https://j.gifs.com/oQDJnY.gif)
 
 ## Application of Adaptive Learning Rate on Training Accuracy
