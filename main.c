@@ -3,11 +3,9 @@
 #include <stdlib.h>
 
 int main(void) {
-  PPM_IMAGE *image = read_ppm("mona_lisa.ppm");
-  //write_ppm("test.ppm",image);
-  //exit(EXIT_SUCCESS);
-  int population_size = 49; // @ 10, 50, 30 seg fault ??
-  int num_generations = 50000;//minute*60; // 4000 iterations per minute
+  PPM_IMAGE *image = read_ppm("mcmaster.ppm");
+  int population_size = 500; // @ 2, 6, 10, 50, 30 seg fault ??
+  int num_generations = 10000;
   double rate = 3e-2;
   printf("\nFile new_out.ppm:\nSize: %dx%d, max color %d, pixels to mutate %d\n",
    image->width, image->height, image->max_color, (int)(rate/100*image->width*image->height));
