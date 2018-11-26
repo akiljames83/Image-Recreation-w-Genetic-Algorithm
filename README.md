@@ -6,5 +6,10 @@ To further improve the efficacy of this algorithm, we applied an Exponentially D
 ## Mona Lisa Recreation
 Here is a video depicting the recreation of the Famous Painting "Mona Lisa".
 
+### Original Image
+
+### Video of Image Recreation
+
+
 ## Application of Adaptive Learning Rate on Training Accuracy
 Graph depicting the efficacy of various adaptive learning rates on a given input image.
