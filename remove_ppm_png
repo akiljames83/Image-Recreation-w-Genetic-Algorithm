@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# small bash script to remove all the files created by evolve and make video scripts
+cd vids/;
+rm *.ppm *.png
+cd ../
