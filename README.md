@@ -5,7 +5,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For a better visualization of the algorithm refer to my personal website with the full video attached (http://akilhamilton.com) in the Evolutionary Image Modal.  
 
 ## Mona Lisa Recreation
-Here is a video depicting the recreation of the Famous Painting "Mona Lisa".
+Depicted below is the recreation of the Famous Painting "Mona Lisa" by the Algorithm.
 
 ### Original & Recreated Image
 ![Original](results/mona_lisa.jpg)
